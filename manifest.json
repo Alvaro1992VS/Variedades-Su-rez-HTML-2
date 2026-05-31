@@ -1,0 +1,12 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "variedadessuarez.netlify",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "variedadessuarez.netlify",
+  "start_url": "/",
+  "theme_color": "#0a1f44",
+  "description": "VariedadesSuarez es tu tienda online de confianza, donde encuentras una amplia selección de productos de comida, bebidas y artículos esenciales para el hogar. Nos enfocamos en ofrecer variedad, calidad y precios accesibles, todo en un solo lugar."
+}
