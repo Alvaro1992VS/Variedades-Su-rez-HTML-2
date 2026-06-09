@@ -59,7 +59,7 @@ const PRODUCTOS = [
   { id: "cloro",              nombre: "Cloro / Lejía",     desc: "Cloro líquido para desinfección del hogar",               precio: 150,  foto: "Cloro.jpg",            categoria: "Limpieza",      emoji: "🧴", unidad: "1L",      stock: 10 },
 
   // ── ASEO PERSONAL ───────────────────────────────────────────────
-  { id: "jabon_bano",         nombre: "Jabón de Baño",     desc: "Jabón de tocador, suave para la piel",                    precio: 100,  foto: "",                     categoria: "Aseo Personal", emoji: "🧼", unidad: "Unidad",  stock: 20 },
+  { id: "jabon_bano",         nombre: "Jabón de Baño",     desc: "Jabón de tocador, suave para la piel",                    precio: 100,  foto: "JabonBano.jpg",                     categoria: "Aseo Personal", emoji: "🧼", unidad: "Unidad",  stock: 20 },
   { id: "pasta_dental",       nombre: "Pasta Dental",      desc: "Pasta dental con flúor, protección completa",             precio: 220,  foto: "PastaDental.jpg",      categoria: "Aseo Personal", emoji: "🪥", unidad: "Unidad",  stock: 10 },
   { id: "shampoo",            nombre: "Shampoo",           desc: "Shampoo para cabello normal, botella 400ml",              precio: 380,  foto: "Shampoo.jpg",          categoria: "Aseo Personal", emoji: "🧴", unidad: "400ml",   stock: 6  },
 
