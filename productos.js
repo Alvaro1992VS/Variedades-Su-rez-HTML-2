@@ -19,7 +19,7 @@ const PRODUCTOS = [
   // ── GRANOS ──────────────────────────────────────────────────────
   { id: "arroz",              nombre: "Arroz",             desc: "Arroz blanco de grano largo, calidad premium",            precio: 120,  foto: "Arroz.jpg",            categoria: "Granos",        emoji: "🌾", unidad: "Lb",      stock: 10 },
   { id: "frijoles_negros",    nombre: "Frijoles Negros",   desc: "Frijoles negros frescos y bien seleccionados",            precio: 400,  foto: "Frijoles.jpg",         categoria: "Granos",        emoji: "🫘", unidad: "Lb",      stock: 8  },
-  { id: "frijoles_colorados", nombre: "Frijoles Colorados",desc: "Frijoles colorados secos, ideales para potaje",           precio: 420,  foto: "FrijolesColorados.jpg",categoria: "Granos",        emoji: "🫘", unidad: "Lb",      stock: 0  },
+  { id: "frijoles_colorados", nombre: "Frijoles Colorados",desc: "Frijoles colorados secos, ideales para potaje",           precio: 420,  foto: "FrijolesColorados.jpg",categoria: "Granos",        emoji: "🫘", unidad: "Lb",      stock: 10  },
   { id: "chicharo",           nombre: "Chícharo",          desc: "Chícharo seco amarillo para sopas y potajes",             precio: 380,  foto: "Chicharo.jpg",         categoria: "Granos",        emoji: "🟡", unidad: "Lb",      stock: 6  },
 
   // ── LÁCTEOS ─────────────────────────────────────────────────────
