@@ -263,7 +263,7 @@
 <header class="header">
   <div class="header-left">
     <h1>🧺 Variedades Suárez</h1>
-    <p>🚚 Encarga y te lo llevo hasta su casa</p>
+    <p>🚚 Encarga y te lo llevo hasta tu casa</p>
   </div>
   <div class="header-right">
     <button class="profile-btn" id="profileHeaderBtn" onclick="navTo('perfil')" title="Mi perfil">👤</button>
@@ -537,6 +537,17 @@ function renderTabs() {
   });
 }
 
+// Genera el HTML de la imagen del producto de forma robusta.
+// Si la foto no carga, muestra el emoji centrado automáticamente.
+function imgProducto(foto, emoji, alt, size) {
+  if (!foto) return `<span style="font-size:${size}px">${emoji}</span>`;
+  return `<img src="${foto}" alt="${alt}"
+    style="width:100%;height:100%;object-fit:cover;display:block;"
+    onload="this.style.display='block'"
+    onerror="this.style.display='none';this.parentElement.querySelector('.img-fallback').style.display='flex'"/>
+    <span class="img-fallback" style="display:none;font-size:${size}px;position:absolute;inset:0;align-items:center;justify-content:center;">${emoji}</span>`;
+}
+
 function renderProducts() {
   const grid  = document.getElementById("productsGrid");
   const query = document.getElementById("searchInput").value.toLowerCase();
@@ -556,8 +567,8 @@ function renderProducts() {
     const overlay  = agotado ? `<div class="agotado-overlay"><span class="agotado-tag">Agotado</span></div>` : "";
     const plusDis  = agotado || qty >= stockActual[p.id] ? "disabled" : "";
     return `<div class="${cardCls}">
-      <div class="product-img-wrap">
-        <img src="${p.foto}" alt="${p.nombre}" onerror="this.parentElement.innerHTML='<span style=font-size:36px>${p.emoji}</span>'"/>
+      <div class="product-img-wrap" style="position:relative;">
+        ${imgProducto(p.foto, p.emoji, p.nombre, 36)}
         ${overlay}
       </div>
       <div class="product-body">
@@ -626,8 +637,8 @@ function renderCart() {
     const p = PRODUCTOS.find(pr => pr.id === id); if (!p) return "";
     const sub = p.precio * qty;
     return `<div class="cart-item">
-      <div class="cart-item-img">
-        <img src="${p.foto}" alt="${p.nombre}" onerror="this.parentElement.innerHTML='<span style=font-size:20px>${p.emoji}</span>'"/>
+      <div class="cart-item-img" style="position:relative;overflow:hidden;">
+        ${imgProducto(p.foto, p.emoji, p.nombre, 20)}
       </div>
       <div class="cart-item-info">
         <div class="cart-item-name">${p.nombre}</div>
