@@ -278,6 +278,136 @@
 
   /* STOCK BAJO AVISO */
   .stock-bajo-aviso { margin:14px 16px 0; background:#fff8e1; border:1.5px solid #ffe082; border-radius:var(--radius-sm); padding:10px 13px; font-size:12px; color:#b8860b; font-weight:600; display:none; }
+
+  /* ── SEGUIMIENTO ── */
+  .seguimiento-wrap { padding:16px; }
+  .seg-search { display:flex; gap:8px; margin-bottom:20px; }
+  .seg-search input { flex:1; border:1.5px solid var(--gray-200); border-radius:10px; padding:10px 13px; font-family:'DM Sans',sans-serif; font-size:14px; color:var(--navy); outline:none; background:white; text-transform:uppercase; }
+  .seg-search input:focus { border-color:var(--navy); }
+  .seg-search button { background:var(--navy); color:white; border:none; border-radius:10px; padding:10px 16px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; cursor:pointer; }
+  .seg-result { background:white; border-radius:var(--radius); padding:16px; box-shadow:var(--shadow-sm); }
+  .seg-codigo { font-family:'Syne',sans-serif; font-size:12px; font-weight:800; color:var(--blue); margin-bottom:12px; }
+  .seg-steps { display:flex; flex-direction:column; gap:0; }
+  .seg-step { display:flex; gap:12px; align-items:flex-start; padding-bottom:16px; position:relative; }
+  .seg-step:not(:last-child)::before { content:''; position:absolute; left:15px; top:32px; bottom:0; width:2px; background:var(--gray-200); }
+  .seg-step.done::before { background:var(--navy); }
+  .seg-icon { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; background:var(--gray-100); border:2px solid var(--gray-200); }
+  .seg-step.done .seg-icon { background:var(--navy); border-color:var(--navy); }
+  .seg-step.active .seg-icon { background:var(--gold); border-color:var(--gold); animation:pulse 1.5s infinite; }
+  .seg-label { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:var(--gray-500); padding-top:6px; }
+  .seg-step.done .seg-label, .seg-step.active .seg-label { color:var(--navy); }
+  .seg-sublabel { font-size:11px; color:var(--gray-500); margin-top:2px; }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(232,160,32,0.4)} 50%{box-shadow:0 0 0 8px rgba(232,160,32,0)} }
+  .seg-empty { text-align:center; padding:30px 0; color:var(--gray-500); font-size:14px; }
+
+  /* ── GALERÍA / NOSOTROS ── */
+  .nosotros-hero { background:linear-gradient(135deg,var(--navy),var(--navy-mid)); padding:28px 20px 22px; text-align:center; }
+  .nosotros-hero h2 { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:white; margin-bottom:6px; }
+  .nosotros-hero p { font-size:13px; color:rgba(255,255,255,0.65); line-height:1.5; }
+  .galeria-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:16px; }
+  .galeria-img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:var(--radius-sm); background:var(--gray-100); display:flex; align-items:center; justify-content:center; font-size:36px; overflow:hidden; }
+  .galeria-img img { width:100%; height:100%; object-fit:cover; border-radius:var(--radius-sm); }
+  .nosotros-info { padding:0 16px 16px; }
+  .nosotros-card { background:white; border-radius:var(--radius); padding:14px; box-shadow:var(--shadow-sm); margin-bottom:12px; }
+  .nosotros-card h3 { font-family:'Syne',sans-serif; font-size:14px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+  .nosotros-card p { font-size:13px; color:var(--gray-500); line-height:1.6; }
+
+  /* ── RESEÑAS ── */
+  .resenas-wrap { padding:16px; }
+  .resena-card { background:white; border-radius:var(--radius); padding:14px; box-shadow:var(--shadow-sm); margin-bottom:12px; border-left:4px solid var(--gold); }
+  .resena-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+  .resena-nombre { font-family:'Syne',sans-serif; font-size:13px; font-weight:800; color:var(--navy); }
+  .resena-estrellas { font-size:12px; color:var(--gold); }
+  .resena-texto { font-size:13px; color:var(--gray-500); line-height:1.5; margin-bottom:4px; }
+  .resena-fecha { font-size:11px; color:var(--gray-200); }
+  .resena-form { background:white; border-radius:var(--radius); padding:14px; box-shadow:var(--shadow-sm); margin-top:4px; }
+  .resena-form h3 { font-family:'Syne',sans-serif; font-size:14px; font-weight:800; color:var(--navy); margin-bottom:12px; }
+  .estrellas-select { display:flex; gap:6px; margin-bottom:12px; }
+  .estrella-btn { font-size:24px; background:none; border:none; cursor:pointer; opacity:0.3; transition:opacity 0.15s; }
+  .estrella-btn.sel { opacity:1; }
+
+  /* ── ADMIN CONTADOR ── */
+  .admin-stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+  .admin-stat { background:white; border-radius:var(--radius); padding:14px; box-shadow:var(--shadow-sm); text-align:center; }
+  .admin-stat-num { font-family:'Syne',sans-serif; font-size:28px; font-weight:800; color:var(--navy); }
+  .admin-stat-label { font-size:11px; color:var(--gray-500); margin-top:2px; font-weight:600; }
+  .admin-pedido-card { background:white; border-radius:var(--radius); padding:13px; box-shadow:var(--shadow-sm); margin-bottom:10px; border-left:4px solid var(--gray-200); }
+  .admin-pedido-card.recibido   { border-left-color:#3182ce; }
+  .admin-pedido-card.preparando { border-left-color:var(--gold); }
+  .admin-pedido-card.camino     { border-left-color:var(--green); }
+  .admin-pedido-card.entregado  { border-left-color:var(--gray-200); opacity:0.6; }
+  .admin-pedido-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+  .admin-pedido-codigo { font-family:'Syne',sans-serif; font-size:11px; font-weight:800; color:var(--blue); }
+  .admin-pedido-cliente { font-size:12px; color:var(--navy); font-weight:600; margin-bottom:4px; }
+  .admin-pedido-items { font-size:12px; color:var(--gray-500); margin-bottom:8px; }
+  .admin-estado-sel { width:100%; border:1.5px solid var(--gray-200); border-radius:8px; padding:7px 10px; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--navy); background:white; outline:none; -webkit-appearance:none; }
+
+  /* SEGUIMIENTO */
+  .seguimiento-wrap { background:white; border-radius:var(--radius); padding:18px; margin-bottom:14px; box-shadow:var(--shadow-sm); }
+  .seguimiento-codigo { font-family:'Syne',sans-serif; font-size:12px; font-weight:800; color:var(--blue); margin-bottom:14px; }
+  .pasos-wrap { position:relative; padding-left:24px; }
+  .pasos-wrap::before { content:''; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:var(--gray-200); }
+  .paso { position:relative; margin-bottom:20px; }
+  .paso:last-child { margin-bottom:0; }
+  .paso-dot { position:absolute; left:-24px; width:18px; height:18px; border-radius:50%; background:var(--gray-200); border:3px solid white; box-shadow:0 0 0 2px var(--gray-200); display:flex; align-items:center; justify-content:center; top:2px; }
+  .paso.activo .paso-dot { background:var(--navy); box-shadow:0 0 0 2px var(--navy); }
+  .paso.hecho .paso-dot { background:var(--green); box-shadow:0 0 0 2px var(--green); }
+  .paso.activo .paso-dot::after { content:''; width:6px; height:6px; border-radius:50%; background:white; }
+  .paso.hecho .paso-dot::after { content:'✓'; font-size:9px; color:white; font-weight:800; }
+  .paso-titulo { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:var(--gray-500); }
+  .paso.activo .paso-titulo { color:var(--navy); }
+  .paso.hecho .paso-titulo { color:var(--green); }
+  .paso-desc { font-size:12px; color:var(--gray-500); margin-top:2px; line-height:1.4; }
+  .paso.activo .paso-desc { color:var(--navy); }
+
+  /* GALERÍA */
+  .galeria-hero { background:linear-gradient(135deg,var(--navy),var(--navy-mid)); padding:24px 20px; text-align:center; }
+  .galeria-hero h2 { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:white; margin-bottom:6px; }
+  .galeria-hero p { font-size:13px; color:rgba(255,255,255,0.65); line-height:1.5; }
+  .galeria-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:16px; }
+  .galeria-item { border-radius:var(--radius-sm); overflow:hidden; aspect-ratio:1; background:var(--gray-100); display:flex; align-items:center; justify-content:center; font-size:32px; position:relative; }
+  .galeria-item img { width:100%; height:100%; object-fit:cover; }
+  .galeria-item.grande { grid-column:1/-1; aspect-ratio:16/9; }
+  .galeria-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(10,31,68,0.7)); padding:8px 10px; font-size:11px; color:white; font-weight:600; }
+  .info-cards { padding:0 16px 16px; display:flex; flex-direction:column; gap:10px; }
+  .info-card { background:white; border-radius:var(--radius-sm); padding:14px; box-shadow:var(--shadow-sm); display:flex; gap:12px; align-items:flex-start; }
+  .info-card-icon { font-size:24px; flex-shrink:0; }
+  .info-card-title { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:var(--navy); margin-bottom:3px; }
+  .info-card-text { font-size:12px; color:var(--gray-500); line-height:1.5; }
+
+  /* RESEÑAS */
+  .resenas-section { padding:16px; }
+  .resena-card { background:white; border-radius:var(--radius); padding:14px; margin-bottom:12px; box-shadow:var(--shadow-sm); border:1px solid var(--gray-100); }
+  .resena-top { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .resena-avatar { width:36px; height:36px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center; color:white; font-family:'Syne',sans-serif; font-size:14px; font-weight:800; flex-shrink:0; }
+  .resena-nombre { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:var(--navy); }
+  .resena-estrellas { font-size:11px; color:var(--gold); }
+  .resena-texto { font-size:13px; color:var(--gray-500); line-height:1.6; }
+  .resena-fecha { font-size:10px; color:var(--gray-500); margin-top:6px; }
+  .resena-form { background:white; border-radius:var(--radius); padding:16px; margin:0 16px 16px; box-shadow:var(--shadow-sm); }
+  .resena-form h3 { font-family:'Syne',sans-serif; font-size:15px; font-weight:700; color:var(--navy); margin-bottom:12px; }
+  .estrellas-input { display:flex; gap:6px; margin-bottom:12px; font-size:28px; cursor:pointer; }
+  .estrella-sel { opacity:0.3; transition:opacity 0.15s; }
+  .estrella-sel.on { opacity:1; }
+
+  /* ADMIN */
+  .admin-stat { background:white; border-radius:var(--radius-sm); padding:14px; margin-bottom:10px; box-shadow:var(--shadow-sm); display:flex; align-items:center; gap:14px; }
+  .admin-stat-icon { font-size:28px; }
+  .admin-stat-num { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:var(--navy); line-height:1; }
+  .admin-stat-label { font-size:12px; color:var(--gray-500); margin-top:2px; }
+  .admin-pedido { background:white; border-radius:var(--radius-sm); padding:13px; margin-bottom:10px; box-shadow:var(--shadow-sm); border-left:4px solid var(--blue); }
+  .admin-pedido-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .admin-pedido-cod { font-family:'Syne',sans-serif; font-size:11px; font-weight:800; color:var(--blue); }
+  .admin-pedido-hora { font-size:11px; color:var(--gray-500); }
+  .admin-pedido-nombre { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+  .admin-pedido-items { font-size:12px; color:var(--gray-500); margin-bottom:8px; }
+  .estado-btns { display:flex; gap:6px; flex-wrap:wrap; }
+  .estado-btn { border:none; border-radius:20px; padding:5px 12px; font-size:11px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; opacity:0.45; }
+  .estado-btn.activo { opacity:1; }
+  .estado-btn.recibido { background:#e8f0fe; color:var(--blue); }
+  .estado-btn.preparando { background:#fff8e1; color:#b8860b; }
+  .estado-btn.camino { background:#e6f7ee; color:var(--green); }
+  .estado-btn.entregado { background:var(--gray-100); color:var(--gray-500); }
 </style>
 </head>
 <body>
@@ -442,15 +572,118 @@
   <div id="historialContent"></div>
 </div>
 
+<!-- ══ SCREEN: SEGUIMIENTO ══ -->
+<div id="screen-seguimiento" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="navTo('historial')">←</button>
+    <h2>Seguimiento</h2>
+  </div>
+  <div id="seguimientoContent" style="padding:16px;"></div>
+</div>
+
+<!-- ══ SCREEN: NOSOTROS ══ -->
+<div id="screen-nosotros" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="navTo('catalogo')">←</button>
+    <h2>Quiénes Somos</h2>
+  </div>
+  <div id="nosotrosContent"></div>
+</div>
+
+<!-- ══ SCREEN: SEGUIMIENTO ══ -->
+<div id="screen-seguimiento" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="navTo('historial')">←</button>
+    <h2>Seguimiento</h2>
+  </div>
+  <div class="seguimiento-wrap">
+    <div class="seg-search">
+      <input type="text" id="segInput" placeholder="CÓDIGO DEL PEDIDO..." maxlength="17"/>
+      <button onclick="buscarPedido()">Buscar</button>
+    </div>
+    <div id="segResult"></div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: NOSOTROS / GALERÍA ══ -->
+<div id="screen-nosotros" class="screen">
+  <div class="nosotros-hero">
+    <h2>🧺 Variedades Suárez</h2>
+    <p>Tu tienda de confianza en el barrio.<br/>Calidad, frescura y entrega a domicilio.</p>
+  </div>
+  <!-- GALERÍA — sube tus fotos a GitHub con estos nombres -->
+  <div class="galeria-grid">
+    <div class="galeria-img"><img src="local1.jpg" onerror="this.parentElement.innerHTML='🏪'" alt="Local"/></div>
+    <div class="galeria-img"><img src="local2.jpg" onerror="this.parentElement.innerHTML='🛒'" alt="Tienda"/></div>
+    <div class="galeria-img"><img src="local3.jpg" onerror="this.parentElement.innerHTML='🥩'" alt="Productos"/></div>
+    <div class="galeria-img"><img src="local4.jpg" onerror="this.parentElement.innerHTML='🚚'" alt="Entrega"/></div>
+  </div>
+  <div class="nosotros-info">
+    <div class="nosotros-card">
+      <h3>📍 ¿Dónde estamos?</h3>
+      <p>Facultad №1 de Medicina, por Calle E de Sueño, Santiago de Cuba. Atendemos de Lunes a Sábado.</p>
+    </div>
+    <div class="nosotros-card">
+      <h3>🚚 ¿Cómo funciona?</h3>
+      <p>Elige tus productos, completa tu pedido y te lo llevamos a tu puerta. Solo pagas en efectivo al recibir.</p>
+    </div>
+    <div class="nosotros-card">
+      <h3>⭐ ¿Por qué elegirnos?</h3>
+      <p>Más de 3 años sirviendo al barrio. Productos frescos, precios justos y entrega puntual.</p>
+    </div>
+  </div>
+  <!-- RESEÑAS -->
+  <div class="resenas-wrap">
+    <p style="font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:14px;">⭐ Lo que dicen nuestros clientes</p>
+    <div id="resenasLista"></div>
+    <!-- Formulario nueva reseña -->
+    <div class="resena-form">
+      <h3>Deja tu reseña</h3>
+      <div class="form-field">
+        <label>Tu nombre</label>
+        <input type="text" id="resenaNombre" placeholder="Ej: María García"/>
+      </div>
+      <div class="form-field">
+        <label>Calificación</label>
+        <div class="estrellas-select" id="estrellasSelect">
+          <button class="estrella-btn" data-val="1" onclick="selEstrellas(1)">⭐</button>
+          <button class="estrella-btn" data-val="2" onclick="selEstrellas(2)">⭐</button>
+          <button class="estrella-btn" data-val="3" onclick="selEstrellas(3)">⭐</button>
+          <button class="estrella-btn" data-val="4" onclick="selEstrellas(4)">⭐</button>
+          <button class="estrella-btn" data-val="5" onclick="selEstrellas(5)">⭐</button>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Comentario</label>
+        <textarea id="resenaTexto" placeholder="Cuéntanos tu experiencia..."></textarea>
+      </div>
+      <button class="btn-primary" onclick="enviarResena()">Enviar reseña</button>
+    </div>
+  </div>
+  <div style="height:30px"></div>
+</div>
+
 <!-- ══ SCREEN: PERFIL ══ -->
 <div id="screen-perfil" class="screen">
   <div id="perfilContent"></div>
+</div>
+
+<!-- ══ SCREEN: ADMIN (solo con ?admin en URL) ══ -->
+<div id="screen-admin" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="navTo('catalogo')">←</button>
+    <h2>Panel Admin</h2>
+  </div>
+  <div id="adminContent" style="padding:16px 16px 80px;"></div>
 </div>
 
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
   <button class="nav-item active" id="nav-catalogo" onclick="navTo('catalogo')">
     <span>🏪</span><span>Tienda</span>
+  </button>
+  <button class="nav-item" id="nav-nosotros" onclick="navTo('nosotros')">
+    <span>📸</span><span>Local</span>
   </button>
   <button class="nav-item" id="nav-historial" onclick="navTo('historial')">
     <span>📋</span><span>Pedidos</span>
@@ -740,12 +973,12 @@ function generateOrderCode() {
 }
 
 // ═══════════════════════════════════
-//  NAVEGACIÓN
+//  NAVEGACIÓN — actualizada con nuevas pantallas
 // ═══════════════════════════════════
-const SCREENS = ["catalogo","carrito","historial","perfil"];
+const SCREENS = ["catalogo","carrito","historial","seguimiento","nosotros","perfil","admin"];
 function navTo(name) {
   SCREENS.forEach(s => {
-    document.getElementById("screen-"+s).classList.toggle("active", s===name);
+    document.getElementById("screen-"+s)?.classList.toggle("active", s===name);
     const navEl = document.getElementById("nav-"+s);
     if (navEl) navEl.classList.toggle("active", s===name);
   });
@@ -757,8 +990,10 @@ function navTo(name) {
     const p = getPerfil();
     document.getElementById("autofillBar").style.display = p ? "flex" : "none";
   }
-  if (name === "historial") renderHistorial();
-  if (name === "perfil")    renderPerfil();
+  if (name === "historial")    renderHistorialConSeguimiento();
+  if (name === "perfil")       renderPerfil();
+  if (name === "nosotros")     renderNosotros();
+  if (name === "admin")        renderAdmin();
   window.scrollTo(0,0);
 }
 
@@ -1092,8 +1327,241 @@ function saveOrderToHistory(nombre, dir, ci, neto) {
 }
 
 // ═══════════════════════════════════
-//  HISTORIAL
+//  ESTADOS DE PEDIDOS (guardados en localStorage)
 // ═══════════════════════════════════
+// ╔══════════════════════════════════════════════════════════════╗
+// ║  GALERÍA — Edita las fotos aquí                              ║
+// ║  Sube tus fotos a GitHub con estos nombres de archivo        ║
+// ║  y se mostrarán automáticamente                              ║
+// ╚══════════════════════════════════════════════════════════════╝
+const GALERIA = [
+  { foto: "local1.jpg",   emoji: "🏪", caption: "Nuestra tienda",         grande: true  },
+  { foto: "local2.jpg",   emoji: "📦", caption: "Nuestros productos",      grande: false },
+  { foto: "local3.jpg",   emoji: "👥", caption: "Nuestro equipo",          grande: false },
+  { foto: "local4.jpg",   emoji: "🚚", caption: "Entrega a domicilio",     grande: false },
+];
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║  RESEÑAS FIJAS — Edita o añade reseñas aquí                 ║
+// ║  Para añadir una nueva copia un bloque { } antes del ];      ║
+// ╚══════════════════════════════════════════════════════════════╝
+const RESENAS_FIJAS = [
+  { nombre: "María G.",    estrellas: 5, texto: "Excelente servicio, llegó rapidísimo y todo en perfecto estado. Lo recomiendo.",         fecha: "Junio 2025"  },
+  { nombre: "Carlos P.",   estrellas: 5, texto: "Muy buena atención y los productos son de calidad. Ya hice varios pedidos.",             fecha: "Mayo 2025"   },
+  { nombre: "Yunia R.",    estrellas: 5, texto: "Súper cómodo pedir desde el teléfono. Me ahorra mucho tiempo.",                          fecha: "Mayo 2025"   },
+  { nombre: "Roberto M.",  estrellas: 4, texto: "Buena variedad de productos y precios razonables. El delivery es muy puntual.",          fecha: "Abril 2025"  },
+];
+
+function getEstados() {
+  try { return JSON.parse(localStorage.getItem("vs_estados")) || {}; } catch { return {}; }
+}
+function saveEstados(e) { localStorage.setItem("vs_estados", JSON.stringify(e)); }
+function setEstadoPedido(codigo, estado) {
+  const e = getEstados(); e[codigo] = estado; saveEstados(e);
+  renderHistorial();
+}
+
+// ═══════════════════════════════════
+//  SEGUIMIENTO DE PEDIDO
+// ═══════════════════════════════════
+function verSeguimiento(codigo) {
+  navTo("seguimiento");
+  const estados  = getEstados();
+  const estado   = estados[codigo] || "recibido";
+  const pasos    = [
+    { key:"recibido",   titulo:"Pedido recibido",    desc:"Tu pedido fue recibido y está siendo revisado." },
+    { key:"preparando", titulo:"En preparación",     desc:"Estamos preparando tu pedido con cuidado." },
+    { key:"camino",     titulo:"En camino",           desc:"Tu pedido está en camino hacia tu dirección." },
+    { key:"entregado",  titulo:"Entregado",           desc:"¡Tu pedido fue entregado! Gracias por tu compra." },
+  ];
+  const idxActual = pasos.findIndex(p => p.key === estado);
+  const cont = document.getElementById("seguimientoContent");
+  cont.innerHTML = `
+    <div class="seguimiento-wrap">
+      <div class="seguimiento-codigo">Pedido: ${codigo}</div>
+      <div class="pasos-wrap">
+        ${pasos.map((p, i) => {
+          const cls = i < idxActual ? "paso hecho" : i === idxActual ? "paso activo" : "paso";
+          return `<div class="${cls}">
+            <div class="paso-dot"></div>
+            <div class="paso-titulo">${p.titulo}</div>
+            <div class="paso-desc">${i <= idxActual ? p.desc : ""}</div>
+          </div>`;
+        }).join("")}
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--gray-500);padding:0 20px;">
+      ¿Dudas? <a href="https://wa.me/5351233908" style="color:var(--navy);font-weight:700;">Escríbenos por WhatsApp</a>
+    </p>`;
+}
+
+// ═══════════════════════════════════
+//  GALERÍA / NOSOTROS
+// ═══════════════════════════════════
+function renderNosotros() {
+  const cont = document.getElementById("nosotrosContent");
+  cont.innerHTML = `
+    <div class="galeria-hero">
+      <h2>Variedades Suárez</h2>
+      <p>Una tienda familiar con más de 5 años sirviendo a la comunidad con productos de calidad y entrega a domicilio.</p>
+    </div>
+    <div class="galeria-grid">
+      ${GALERIA.map(g => `
+        <div class="galeria-item${g.grande?" grande":""}">
+          <img src="${g.foto}" alt="${g.caption}"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <span style="display:none;font-size:${g.grande?'48':'32'}px;position:absolute;inset:0;align-items:center;justify-content:center;">${g.emoji}</span>
+          <div class="galeria-caption">${g.caption}</div>
+        </div>`).join("")}
+    </div>
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-icon">📍</div>
+        <div>
+          <div class="info-card-title">Ubicación</div>
+          <div class="info-card-text">Facultad №1 De Medicina, Calle E, Santiago de Cuba</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🕐</div>
+        <div>
+          <div class="info-card-title">Horario</div>
+          <div class="info-card-text">Lunes a Sábado: 7:00 AM – 12:00 PM y 1:00 PM – 6:00 PM<br/>Domingos: Cerrado</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🚚</div>
+        <div>
+          <div class="info-card-title">Entrega a domicilio</div>
+          <div class="info-card-text">Llevamos tu pedido hasta la puerta de tu casa. Pago en efectivo al recibir.</div>
+        </div>
+      </div>
+    </div>
+    <div class="resenas-section">
+      <p style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;">⭐ Reseñas de clientes</p>
+      ${RESENAS_FIJAS.map(r => `
+        <div class="resena-card">
+          <div class="resena-top">
+            <div class="resena-avatar">${r.nombre[0]}</div>
+            <div>
+              <div class="resena-nombre">${r.nombre}</div>
+              <div class="resena-estrellas">${"★".repeat(r.estrellas)}${"☆".repeat(5-r.estrellas)}</div>
+            </div>
+          </div>
+          <div class="resena-texto">${r.texto}</div>
+          <div class="resena-fecha">${r.fecha}</div>
+        </div>`).join("")}
+    </div>
+    <div class="resena-form" id="resenaForm">
+      <h3>Deja tu reseña</h3>
+      <div class="estrellas-input" id="estrellasInput">
+        ${"★★★★★".split("").map((_,i) => `<span class="estrella-sel" data-val="${i+1}" onclick="selEstrellas(${i+1})">★</span>`).join("")}
+      </div>
+      <div class="form-field">
+        <input type="text" id="resenaNombre" placeholder="Tu nombre (ej: María G.)"/>
+      </div>
+      <div class="form-field">
+        <textarea id="resenaTexto" placeholder="Cuéntanos tu experiencia..." style="height:80px;resize:none;width:100%;border:1.5px solid var(--gray-200);border-radius:10px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;"></textarea>
+      </div>
+      <button class="btn-primary" onclick="enviarResena()" style="margin-top:4px;">Enviar reseña</button>
+    </div>
+    <div style="padding-bottom:20px;"></div>`;
+}
+
+let _estrellasVal = 5;
+function selEstrellas(val) {
+  _estrellasVal = val;
+  document.querySelectorAll(".estrella-sel").forEach((el,i) => {
+    el.classList.toggle("on", i < val);
+  });
+}
+function enviarResena() {
+  const nombre = document.getElementById("resenaNombre").value.trim();
+  const texto  = document.getElementById("resenaTexto").value.trim();
+  if (!nombre || !texto) { showToast("⚠️ Completa tu nombre y reseña"); return; }
+  // Guarda localmente y muestra en la lista
+  const locales = JSON.parse(localStorage.getItem("vs_resenas") || "[]");
+  const nueva   = { nombre, estrellas: _estrellasVal, texto, fecha: "Ahora" };
+  locales.unshift(nueva);
+  localStorage.setItem("vs_resenas", JSON.stringify(locales.slice(0,10)));
+  showToast("✅ Gracias por tu reseña");
+  renderNosotros();
+}
+
+// ═══════════════════════════════════
+//  PANEL ADMIN
+// ═══════════════════════════════════
+function renderAdmin() {
+  if (!window.location.search.includes("admin")) { navTo("catalogo"); return; }
+  const cont     = document.getElementById("adminContent");
+  const h        = getHistorial();
+  const hoy      = new Date().toLocaleDateString("es-ES",{day:"2-digit",month:"short",year:"numeric"});
+  const pedidosHoy = h.filter(p => p.fecha.startsWith(hoy));
+  const totalHoy   = pedidosHoy.reduce((s,p) => s+p.total, 0);
+  const estados    = getEstados();
+
+  // Stock bajo
+  const agotados = PRODUCTOS.filter(p => (stockActual[p.id]||0) === 0);
+  const bajos    = PRODUCTOS.filter(p => (stockActual[p.id]||0) > 0 && (stockActual[p.id]||0) <= STOCK_BAJO_LIMITE);
+
+  cont.innerHTML = `
+    <p style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--navy);margin-bottom:14px;">📊 Resumen de hoy</p>
+    <div class="admin-stat">
+      <div class="admin-stat-icon">📦</div>
+      <div>
+        <div class="admin-stat-num">${pedidosHoy.length}</div>
+        <div class="admin-stat-label">Pedidos hoy</div>
+      </div>
+    </div>
+    <div class="admin-stat">
+      <div class="admin-stat-icon">💰</div>
+      <div>
+        <div class="admin-stat-num">${totalHoy.toFixed(0)}</div>
+        <div class="admin-stat-label">CUP recaudados hoy</div>
+      </div>
+    </div>
+    <div class="admin-stat">
+      <div class="admin-stat-icon">🔴</div>
+      <div>
+        <div class="admin-stat-num">${agotados.length}</div>
+        <div class="admin-stat-label">Productos agotados</div>
+      </div>
+    </div>
+    <div class="admin-stat">
+      <div class="admin-stat-icon">🟡</div>
+      <div>
+        <div class="admin-stat-num">${bajos.length}</div>
+        <div class="admin-stat-label">Stock bajo (≤${STOCK_BAJO_LIMITE} unid.)</div>
+      </div>
+    </div>
+
+    ${agotados.length||bajos.length ? `
+    <p style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--navy);margin:16px 0 10px;">⚠️ Alertas de stock</p>
+    ${agotados.map(p=>`<div style="background:#fdecea;border-radius:8px;padding:8px 12px;margin-bottom:6px;font-size:12px;font-weight:600;color:var(--red);">🔴 ${p.nombre} — AGOTADO</div>`).join("")}
+    ${bajos.map(p=>`<div style="background:#fff8e1;border-radius:8px;padding:8px 12px;margin-bottom:6px;font-size:12px;font-weight:600;color:#b8860b;">🟡 ${p.nombre} — ${stockActual[p.id]} unidades</div>`).join("")}
+    ` : ""}
+
+    <p style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--navy);margin:16px 0 10px;">📋 Pedidos de hoy — cambia el estado</p>
+    ${pedidosHoy.length === 0 ? '<p style="color:var(--gray-500);font-size:14px;">Aún no hay pedidos hoy.</p>' :
+      pedidosHoy.map(p => {
+        const est = estados[p.codigo] || "recibido";
+        return `<div class="admin-pedido">
+          <div class="admin-pedido-top">
+            <div class="admin-pedido-cod">${p.codigo}</div>
+            <div class="admin-pedido-hora">${p.fecha.split(" ").slice(-1)}</div>
+          </div>
+          <div class="admin-pedido-nombre">${p.nombre} · ${p.total.toFixed(0)} CUP</div>
+          <div class="admin-pedido-items">${p.items.join(" · ")}</div>
+          <div class="estado-btns">
+            <button class="estado-btn recibido ${est==='recibido'?'activo':''}"   onclick="setEstadoPedido('${p.codigo}','recibido');renderAdmin()">Recibido</button>
+            <button class="estado-btn preparando ${est==='preparando'?'activo':''}" onclick="setEstadoPedido('${p.codigo}','preparando');renderAdmin()">Preparando</button>
+            <button class="estado-btn camino ${est==='camino'?'activo':''}"      onclick="setEstadoPedido('${p.codigo}','camino');renderAdmin()">En camino</button>
+            <button class="estado-btn entregado ${est==='entregado'?'activo':''}" onclick="setEstadoPedido('${p.codigo}','entregado');renderAdmin()">Entregado</button>
+          </div>
+        </div>`;
+      }).join("")
+    }`;
+}
 function renderHistorial() {
   const cont = document.getElementById("historialContent");
   const h    = getHistorial();
@@ -1201,8 +1669,247 @@ function eliminarPerfil() {
 }
 
 // ═══════════════════════════════════
-//  TOAST
+//  SEGUIMIENTO DE PEDIDO
 // ═══════════════════════════════════
+const ESTADOS = [
+  { key:"recibido",   label:"Pedido recibido",    sub:"Tu pedido llegó y está en cola",        icon:"✅" },
+  { key:"preparando", label:"En preparación",      sub:"Estamos preparando tu pedido",          icon:"📦" },
+  { key:"camino",     label:"En camino",           sub:"Tu pedido va en camino hacia ti",       icon:"🚚" },
+  { key:"entregado",  label:"Entregado",           sub:"Pedido entregado con éxito",            icon:"🎉" },
+];
+
+function getEstados() {
+  try { return JSON.parse(localStorage.getItem("vs_estados")) || {}; } catch { return {}; }
+}
+function saveEstados(e) { localStorage.setItem("vs_estados", JSON.stringify(e)); }
+
+function buscarPedido() {
+  const codigo  = document.getElementById("segInput").value.trim().toUpperCase();
+  const estados = getEstados();
+  const estado  = estados[codigo] || null;
+  const hist    = getHistorial();
+  const pedido  = hist.find(p => p.codigo === codigo);
+  const cont    = document.getElementById("segResult");
+
+  if (!pedido && !estado) {
+    cont.innerHTML = `<div class="seg-empty">🔍 No se encontró ningún pedido con ese código.<br/>Verifica que esté bien escrito.</div>`;
+    return;
+  }
+
+  const estadoActual = estado || "recibido";
+  const idxActual    = ESTADOS.findIndex(e => e.key === estadoActual);
+
+  cont.innerHTML = `
+    <div class="seg-result">
+      <div class="seg-codigo">Pedido ${codigo}</div>
+      <div class="seg-steps">
+        ${ESTADOS.map((e, i) => {
+          const done   = i < idxActual;
+          const active = i === idxActual;
+          return `<div class="seg-step ${done?"done":""} ${active?"active":""}">
+            <div class="seg-icon">${e.icon}</div>
+            <div>
+              <div class="seg-label">${e.label}</div>
+              ${active ? `<div class="seg-sublabel">${e.sub}</div>` : ""}
+            </div>
+          </div>`;
+        }).join("")}
+      </div>
+    </div>`;
+}
+
+// Actualizar estado desde historial — el cliente puede buscar su código
+function renderHistorialConSeguimiento() {
+  renderHistorial();
+  // Añade botón "Ver estado" a cada tarjeta del historial
+  const h = getHistorial();
+  h.forEach(p => {
+    const cards = document.querySelectorAll(".history-code");
+    cards.forEach(el => {
+      if (el.textContent.includes(p.codigo)) {
+        const parent = el.closest(".history-card");
+        if (parent && !parent.querySelector(".seg-link")) {
+          const btn = document.createElement("button");
+          btn.className   = "seg-link";
+          btn.textContent = "📍 Ver estado";
+          btn.style.cssText = "background:var(--blue-light);color:var(--blue);border:none;border-radius:8px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;margin-top:6px;font-family:'DM Sans',sans-serif;";
+          btn.onclick = () => {
+            document.getElementById("segInput").value = p.codigo;
+            navTo("seguimiento");
+            buscarPedido();
+          };
+          parent.appendChild(btn);
+        }
+      }
+    });
+  });
+}
+
+// ═══════════════════════════════════
+//  GALERÍA / NOSOTROS
+// ═══════════════════════════════════
+function renderNosotros() {
+  renderResenas();
+}
+
+// ═══════════════════════════════════
+//  RESEÑAS
+// ═══════════════════════════════════
+let estrellasSeleccionadas = 5;
+
+function getResenas() {
+  try { return JSON.parse(localStorage.getItem("vs_resenas")) || [
+    { nombre:"Carlos M.",    estrellas:5, texto:"Excelente servicio, siempre puntual y los productos muy frescos.",  fecha:"Ene 2025" },
+    { nombre:"Yolanda P.",   estrellas:5, texto:"Me encanta la tienda, los precios son muy buenos y la entrega rápida.", fecha:"Feb 2025" },
+    { nombre:"Roberto G.",   estrellas:4, texto:"Muy buena atención. El arroz y los frijoles de primera calidad.", fecha:"Mar 2025" },
+  ]; } catch { return []; }
+}
+function saveResenas(r) { localStorage.setItem("vs_resenas", JSON.stringify(r)); }
+
+function selEstrellas(n) {
+  estrellasSeleccionadas = n;
+  document.querySelectorAll(".estrella-btn").forEach((btn, i) => {
+    btn.classList.toggle("sel", i < n);
+  });
+}
+
+function renderResenas() {
+  const cont = document.getElementById("resenasLista");
+  if (!cont) return;
+  const resenas = getResenas();
+  cont.innerHTML = resenas.map(r => `
+    <div class="resena-card">
+      <div class="resena-top">
+        <div class="resena-nombre">${r.nombre}</div>
+        <div class="resena-estrellas">${"⭐".repeat(r.estrellas)}</div>
+      </div>
+      <div class="resena-texto">${r.texto}</div>
+      <div class="resena-fecha">${r.fecha}</div>
+    </div>`).join("");
+  // Inicializar estrellas del form
+  selEstrellas(5);
+}
+
+function enviarResena() {
+  const nombre = document.getElementById("resenaNombre").value.trim();
+  const texto  = document.getElementById("resenaTexto").value.trim();
+  if (!nombre || !texto) { showToast("⚠️ Completa tu nombre y comentario"); return; }
+  const now    = new Date();
+  const fecha  = now.toLocaleDateString("es-ES", { month:"short", year:"numeric" });
+  const resenas = getResenas();
+  resenas.unshift({ nombre, estrellas: estrellasSeleccionadas, texto, fecha });
+  saveResenas(resenas);
+  document.getElementById("resenaNombre").value = "";
+  document.getElementById("resenaTexto").value  = "";
+  renderResenas();
+  showToast("✅ ¡Gracias por tu reseña!");
+}
+
+// ═══════════════════════════════════
+//  ADMIN — CONTADOR Y SEGUIMIENTO
+// ═══════════════════════════════════
+function renderAdmin() {
+  const cont    = document.getElementById("adminContent");
+  const esAdmin = window.location.search.includes("admin");
+  if (!esAdmin) { cont.innerHTML = `<p style="color:var(--gray-500);font-size:14px;">Acceso restringido.</p>`; return; }
+
+  const h     = getHistorial();
+  const hoy   = new Date().toLocaleDateString("es-ES", { day:"2-digit", month:"short", year:"numeric" });
+  const hoyPedidos = h.filter(p => p.fecha.startsWith(hoy));
+  const totalHoy   = hoyPedidos.reduce((s, p) => s + p.total, 0);
+  const estados    = getEstados();
+
+  // Bajos y agotados
+  const bajos    = PRODUCTOS.filter(p => (stockActual[p.id]||0) > 0 && (stockActual[p.id]||0) <= STOCK_BAJO_LIMITE);
+  const agotados = PRODUCTOS.filter(p => (stockActual[p.id]||0) === 0);
+
+  cont.innerHTML = `
+    <div class="admin-stat-grid">
+      <div class="admin-stat">
+        <div class="admin-stat-num">${hoyPedidos.length}</div>
+        <div class="admin-stat-label">Pedidos hoy</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-num">${totalHoy.toFixed(0)}</div>
+        <div class="admin-stat-label">CUP hoy</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-num">${agotados.length}</div>
+        <div class="admin-stat-label">Agotados</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-num">${bajos.length}</div>
+        <div class="admin-stat-label">Stock bajo</div>
+      </div>
+    </div>
+
+    ${agotados.length ? `<div class="stock-bajo-aviso" style="display:block;margin:0 0 14px;">
+      🔴 <strong>Agotados:</strong> ${agotados.map(p=>p.nombre).join(", ")}
+    </div>` : ""}
+    ${bajos.length ? `<div class="stock-bajo-aviso" style="display:block;margin:0 0 14px;">
+      🟡 <strong>Stock bajo:</strong> ${bajos.map(p=>`${p.nombre} (${stockActual[p.id]})`).join(", ")}
+    </div>` : ""}
+
+    <p style="font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:12px;">📦 Pedidos de hoy — cambia el estado</p>
+
+    ${hoyPedidos.length === 0
+      ? `<p style="color:var(--gray-500);font-size:14px;">No hay pedidos hoy todavía.</p>`
+      : hoyPedidos.map(p => {
+          const est = estados[p.codigo] || "recibido";
+          return `<div class="admin-pedido-card ${est}" id="acard_${p.codigo}">
+            <div class="admin-pedido-top">
+              <div class="admin-pedido-codigo">${p.codigo}</div>
+              <div style="font-size:11px;color:var(--gray-500)">${p.fecha.split(" ").slice(1).join(" ")}</div>
+            </div>
+            <div class="admin-pedido-cliente">👤 ${p.nombre} · ${p.total.toFixed(0)} CUP</div>
+            <div class="admin-pedido-items">${p.items.join(" · ")}</div>
+            <select class="admin-estado-sel" onchange="cambiarEstado('${p.codigo}', this.value)">
+              <option value="recibido"   ${est==="recibido"   ?"selected":""}>✅ Recibido</option>
+              <option value="preparando" ${est==="preparando" ?"selected":""}>📦 En preparación</option>
+              <option value="camino"     ${est==="camino"     ?"selected":""}>🚚 En camino</option>
+              <option value="entregado"  ${est==="entregado"  ?"selected":""}>🎉 Entregado</option>
+            </select>
+          </div>`;
+        }).join("")
+    }
+
+    <p style="font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--navy);margin:20px 0 12px;">📋 Todos los pedidos (${h.length})</p>
+    ${h.slice(0,20).map(p => {
+      const est = estados[p.codigo] || "recibido";
+      return `<div class="admin-pedido-card ${est}">
+        <div class="admin-pedido-top">
+          <div class="admin-pedido-codigo">${p.codigo}</div>
+          <div style="font-size:11px;color:var(--gray-500)">${p.fecha}</div>
+        </div>
+        <div class="admin-pedido-cliente">👤 ${p.nombre} · ${p.total.toFixed(0)} CUP</div>
+        <div class="admin-pedido-items">${p.items.join(" · ")}</div>
+        <select class="admin-estado-sel" onchange="cambiarEstado('${p.codigo}', this.value)">
+          <option value="recibido"   ${est==="recibido"   ?"selected":""}>✅ Recibido</option>
+          <option value="preparando" ${est==="preparando" ?"selected":""}>📦 En preparación</option>
+          <option value="camino"     ${est==="camino"     ?"selected":""}>🚚 En camino</option>
+          <option value="entregado"  ${est==="entregado"  ?"selected":""}>🎉 Entregado</option>
+        </select>
+      </div>`;
+    }).join("")}
+  `;
+}
+
+function cambiarEstado(codigo, nuevoEstado) {
+  const estados = getEstados();
+  estados[codigo] = nuevoEstado;
+  saveEstados(estados);
+  // Actualizar color del card sin re-renderizar todo
+  const card = document.getElementById("acard_" + codigo);
+  if (card) {
+    card.className = `admin-pedido-card ${nuevoEstado}`;
+  }
+  showToast("✅ Estado actualizado");
+}
+
+// ═══════════════════════════════════
+//  HISTORIAL — override para añadir botón seguimiento
+// ═══════════════════════════════════
+const _renderHistorialOriginal = typeof renderHistorial === "function" ? renderHistorial : null;
 let toastTimer;
 function showToast(msg) {
   const t = document.getElementById("toast");
@@ -1225,10 +1932,15 @@ document.getElementById("productsGrid").innerHTML =
    </div>`;
 
 verificarHorario();
-setInterval(verificarHorario, 60000); // actualiza cada minuto
+setInterval(verificarHorario, 60000);
 renderTabs();
 renderCombos();
-cargarStock(); // al terminar llama renderProducts() y luego verificarStockBajo()
+cargarStock();
+
+// Si entras con ?admin abre el panel directamente
+if (window.location.search.includes("admin")) {
+  setTimeout(() => navTo("admin"), 300);
+}
 </script>
 </body>
 </html>
