@@ -262,11 +262,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);
 .admin-stat-num{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--navy);}
 .admin-stat-label{font-size:10.5px;color:var(--gray-500);margin-top:2px;font-weight:600;}
 .admin-stock-row{display:flex;align-items:center;gap:7px;background:white;border-radius:9px;padding:10px 11px;margin-bottom:8px;box-shadow:var(--shadow-sm);}
-.admin-stock-nombre{flex:1;font-size:12.5px;font-weight:600;color:var(--navy);line-height:1.3;}
+.admin-stock-nombre{flex:1;font-size:12.5px;font-weight:600;color:var(--navy);line-height:1.45;letter-spacing:0.1px;}
 .admin-stock-btn{width:28px;height:28px;border-radius:50%;border:none;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;background:var(--gray-100);color:var(--navy);}
 .admin-stock-btn.plus{background:var(--navy);color:white;}
 .admin-stock-num{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--navy);min-width:24px;text-align:center;}
-.stock-badge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;text-transform:uppercase;margin-left:4px;}
+.stock-badge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;text-transform:uppercase;margin-left:5px;letter-spacing:0.3px;}
 .stock-badge.ok{background:#eaf6f0;color:#155e34;}
 .stock-badge.bajo{background:#fff8e1;color:#7a4f0d;}
 .stock-badge.agotado{background:#fceaea;color:#9b2c2c;}
@@ -583,16 +583,11 @@ async function cargarPedidosGlobales() {
     // Cargar combos personalizados desde admin
     if(d.record?.combosData)  COMBOS_DATA  = d.record.combosData;
 
-    // Cargar precios editados desde admin
-    if(d.record?.preciosEditados){
-      Object.entries(d.record.preciosEditados).forEach(([id,precio])=>{
-        const p=PRODUCTOS.find(x=>x.id===id);
-        if(p) p.precio=precio;
-      });
-    }
     _preciosEditados = d.record?.preciosEditados || {};
 
     // Añadir productos extra en memoria (saneados, sin campos faltantes)
+    // Esto debe ocurrir ANTES de aplicar precios editados, para que un
+    // precio editado en un producto añadido desde el admin también se aplique.
     _productosExtra.forEach(pe=>{
       if(!pe || !pe.id || !pe.nombre) return; // omite entradas dañadas
       if(!PRODUCTOS.find(p=>p.id===pe.id)){
@@ -606,6 +601,13 @@ async function cargarPedidosGlobales() {
         PRODUCTOS.push(limpio);
         if(stockActual[limpio.id]===undefined) stockActual[limpio.id]=limpio.stock;
       }
+    });
+
+    // Cargar precios editados desde admin (aplica a TODOS los productos,
+    // incluyendo los recién añadidos desde el admin)
+    Object.entries(_preciosEditados).forEach(([id,precio])=>{
+      const p=PRODUCTOS.find(x=>x.id===id);
+      if(p) p.precio = (typeof precio==="number"?precio:parseFloat(precio))||p.precio;
     });
   } catch(e) { console.warn("Error cargando pedidos",e); }
 }
@@ -1154,21 +1156,24 @@ async function renderAdmin(){
     ${PRODUCTOS.filter(p=>stockActual[p.id]!==-1).map(p=>{
       const s=stockActual[p.id]||0;
       const badge=s===0?`<span class="stock-badge agotado">Agotado</span>`:s<=STOCK_BAJO_LIMITE?`<span class="stock-badge bajo">Bajo</span>`:`<span class="stock-badge ok">OK</span>`;
-      return`<div class="admin-stock-row" id="row_${p.id}">
-        <div style="flex:1;min-width:0;">
-          <div class="admin-stock-nombre">${p.emoji} ${p.nombre} ${badge}</div>
-          <div style="display:flex;align-items:center;gap:6px;margin-top:5px;">
-            <span style="font-size:11px;color:var(--gray-500);white-space:nowrap;">Precio:</span>
-            <input type="number" value="${p.precio}" id="precio_${p.id}" style="width:75px;border:1.5px solid var(--gray-200);border-radius:7px;padding:3px 7px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--navy);outline:none;"/>
-            <span style="font-size:11px;color:var(--gray-500);">CUP</span>
-            <button onclick="editarPrecio('${p.id}',document.getElementById('precio_${p.id}').value)" style="background:var(--green);color:white;border:none;border-radius:7px;width:26px;height:26px;font-size:13px;cursor:pointer;flex-shrink:0;" title="Confirmar precio">✔️</button>
-          </div>
+      return`<div class="admin-stock-row" id="row_${p.id}" style="flex-direction:column;align-items:stretch;gap:8px;">
+        <div class="admin-stock-nombre">${p.emoji} ${p.nombre} ${badge}</div>
+
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:11px;color:var(--gray-500);white-space:nowrap;">Precio</span>
+          <input type="number" value="${p.precio}" id="precio_${p.id}" style="width:70px;border:1.5px solid var(--gray-200);border-radius:7px;padding:5px 7px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--navy);outline:none;"/>
+          <span style="font-size:11px;color:var(--gray-500);">CUP</span>
+          <button onclick="editarPrecio('${p.id}',document.getElementById('precio_${p.id}').value)" style="background:var(--green);color:white;border:none;border-radius:7px;width:30px;height:30px;font-size:14px;cursor:pointer;flex-shrink:0;margin-left:auto;" title="Confirmar precio">✔️</button>
         </div>
-        <button class="admin-stock-btn" onclick="ajustarStock('${p.id}',-1)">-</button>
-        <div class="admin-stock-num" id="adm_${p.id}">${s}</div>
-        <button class="admin-stock-btn plus" onclick="ajustarStock('${p.id}',1)">+</button>
-        <button onclick="reponerStock('${p.id}')" style="background:var(--navy);color:white;border:none;border-radius:8px;padding:5px 8px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap;">Reponer</button>
-        <button onclick="borrarProducto('${p.id}')" style="background:#fdecea;color:var(--red);border:1.5px solid #f5c6c2;border-radius:8px;padding:5px 8px;font-size:13px;cursor:pointer;flex-shrink:0;">X</button>
+
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:11px;color:var(--gray-500);white-space:nowrap;">Stock</span>
+          <button class="admin-stock-btn" onclick="ajustarStock('${p.id}',-1)" style="width:26px;height:26px;font-size:14px;">-</button>
+          <div class="admin-stock-num" id="adm_${p.id}" style="min-width:22px;">${s}</div>
+          <button class="admin-stock-btn plus" onclick="ajustarStock('${p.id}',1)" style="width:26px;height:26px;font-size:14px;">+</button>
+          <button onclick="reponerStock('${p.id}')" style="background:var(--navy);color:white;border:none;border-radius:7px;padding:6px 9px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap;margin-left:auto;">Reponer</button>
+          <button onclick="borrarProducto('${p.id}')" style="background:#fdecea;color:var(--red);border:1.5px solid #f5c6c2;border-radius:7px;padding:6px 9px;font-size:12px;cursor:pointer;flex-shrink:0;">X</button>
+        </div>
       </div>`;
     }).join("")}
     <p class="admin-section-title">Cupones de descuento</p>
@@ -1481,7 +1486,8 @@ renderCombos();
 renderProducts();
 
 // Luego actualizar en segundo plano con datos reales de JSONBin
-Promise.all([cargarProductosExtra(), cargarStock()]).then(()=>{
+// (precios editados, combos, cupones, productos extra y stock)
+Promise.all([cargarPedidosGlobales(), cargarStock()]).then(()=>{
   renderProducts(); renderTabs(); renderCombos();
 }).catch(e=>{
   console.warn("JSONBin no respondió, usando datos locales", e);
